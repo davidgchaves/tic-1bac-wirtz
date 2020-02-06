@@ -376,7 +376,7 @@ de xeito que poidamos invocala tal que así
 sayHiToDavid();
 ```
 
-Vamos a ver que acontece
+Imos ver que acontece
 
 ![](./img/sayHiToDavid.png)
 
@@ -400,7 +400,7 @@ function sayHiToInsertNameHere() {
 }
 ```
 
-A estas alturas xa vemos o problema. Somos moi concretos. Necesitamos ser mais abstractos. Necesitamos que o nome da persoa que queremos saudar poida cambiar.... ENTER PARAMETERS! 🐉🐉🐉
+A estas alturas xa vemos o problema. Somos moi concretos. Precisamos ser mais abstractos, que o nome da persoa que queremos saudar poida cambiar.... **ENTER PARAMETERS!** 🐉🐉🐉
 
 ### 1.10.2 A solución
 
@@ -427,7 +427,7 @@ Comprobamos
 
 ### 1.10.3 Conclusión
 
-Os parámetros (`name`) / argumentos (`David`, `You`, `Kim`, `Setsuko`) permítennos _encapsular_ as cousas que mudan. Dalgún xeito poderiamos dicir que unha función só debe usar os datos que sonlle pasados a través dos parámetros...
+Os **parámetros** (`name`) / **argumentos** (`David`, `You`, `Kim`, `Setsuko`) permítennos _encapsular_ as cousas que mudan. Dalgún xeito poderiamos dicir que unha función só debe usar os datos que sonlle pasados a través dos parámetros...
 
 Pero entón... qué acontece con `"hello".toUpperCase()`?
 
