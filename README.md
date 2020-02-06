@@ -395,7 +395,7 @@ sayHiToYou();
 E poderiamos seguir así ata o infinito definindo e usando unha chea de funcións moi semellantes.
 
 ```js
-function sayHiToInsertNameHere {
+function sayHiToInsertNameHere() {
   return "Hello insertNameHere 👽👾🤖";
 }
 ```
