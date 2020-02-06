@@ -23,6 +23,18 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
   - [1.9 Funcións anónimas, Arrow Functions e Lambda Functions](#19-funcións-anónimas-arrow-functions-e-lambda-functions)
     - [1.9.1 Inconsistencias](#191-inconsistencias)
     - [1.9.2 `return` implícito](#192-return-implícito)
+  - [INTERLUDIO: Interpolación de Strings](#interludio-interpolación-de-strings)
+  - [INTERLUDIO: Emojis e Strings](#interludio-emojis-e-strings)
+  - [1.10 ¿Por qué existen os parámetros?](#110-por-qué-existen-os-parámetros)
+    - [1.10.1 O problema](#1101-o-problema)
+    - [1.10.2 A solución](#1102-a-solución)
+    - [1.10.3 Conclusión](#1103-conclusión)
+  - [1.11 O caso de `"hello".toUpperCase()`](#111-o-caso-de-hellotouppercase)
+    - [1.11.1 O primeiro problema](#1111-o-primeiro-problema)
+    - [1.11.2 O segundo problema](#1112-o-segundo-problema)
+    - [1.11.3 A solución](#1113-a-solución)
+    - [1.11.4 Conclusion](#1114-conclusion)
+    - [1.11.5 Exercicio](#1115-exercicio)
 
 ## 1.1 Definición dunha función
 
@@ -41,7 +53,7 @@ add1(4) // Devolve un 5
 
 ## 1.3 Anatomía dunha función (definición e invocación)
 
-Vamos a poñerlle nome a cada unha das partes dunha función
+Imos poñerlle nome a cada unha das partes dunha función
 
 ```js
 function magic(x, y, z) {
@@ -76,7 +88,7 @@ Dende o punto de vista que estamos a defender na clase, podemos ver as funcións
       -----------
 ```
 
-É dicir só nos interesan as entradas (**IN**) e saidas (**OUT**). Por exemplo, `magic` ten
+É dicir, só nos interesan as entradas (**IN**) e saidas (**OUT**). Por exemplo, `magic` ten
 
 - 3 entradas `(x, y, z)`
 - 1 saida, o resultado de `x + y - z` que é un número e podemos chamarlle `q`
@@ -121,7 +133,7 @@ function noReturn(x) {
 noReturn(4);
 ```
 
-Esto é o que acontece:
+Esto é o que acontece
 
 ![](./img/no-return-example.png)
 
@@ -183,7 +195,7 @@ Fixémonos en qué acontece
 
 Efectivamente non hai return (mirade o `undefined` por riba do `150`) e temos 3 efectos secundarios.
 
-Poderíamos dicir que  `efectosSecundariosAndNoReturn` ten
+Poderiamos dicir que `efectosSecundariosAndNoReturn` ten
 
 - 1 entrada `x`
 - 0 saidas (no `return`, daí o `undefined`)
@@ -227,7 +239,7 @@ Unha como `add1`. É dicir:
 - 1 entrada (`x`)
 - 1 saida (o resultado de facer `x + 1`)
 
-Se `map` recibe como argumento unha función con características diferentes non vai funcionar. Por exemplo se recibe unha función con 3 entradas falla.
+Se `map` recibe como argumento unha función con características diferentes non vai funcionar. Por exemplo se recibe unha función con 3 entradas, falla.
 
 ### 1.8.2 `<array>.filter(function)`
 
@@ -240,7 +252,7 @@ Unha como `greaterThan15`. É dicir:
 - 1 entrada (`x`)
 - 1 saida (o resultado de facer `x > 15`).
 
-Pero neste caso ademáis a saida debe ser ou `true` ou `false`. A este tipo de funcións chamamolas **predicados**.
+Pero neste caso ademais a saida debe ser ou `true` ou `false`. A este tipo de funcións chamámolas **predicados**.
 
 Se `filter` recibe como argumento unha función con características diferentes non vai funcionar. Por exemplo se recibe unha función con 3 entradas falla ou se recibe unha función que non devolve `true` ou `false`.
 
@@ -255,11 +267,11 @@ Unha como `minus`. É dicir:
 - 2 entradas (`acc`, `x`)
 - 1 saida (o resultado de facer `acc - x`).
 
-Neste caso preferimos poñer un nome máis descritivo a os parámetros da función `minus`. En lugar de `x`e `y` poñemos `acc` (diminutivo de `accumulator`) e `x` porque cando lla pasamos a `reduce` fai o seguinte:
+Neste caso preferimos poñer un nome máis descritivo aos parámetros da función `minus`. En lugar de `x`e `y` poñemos `acc` (diminutivo de `accumulator`) e `x` porque cando lla pasamos a `reduce` fai o seguinte:
 
 1. `acc` toma o valor do primeiro número do array (`acc = 10`) e `x` o do segundo (`x = 20`).
-2. executamos o `return` (`acc - x`) obtendo o valor `-10` (`10 - 20 = -10`). Este `-10` vai se o valor do próximo `acc`.
-3. `acc` toma o valor do último `return` (`acc = -10`) e `x`o do seguinte valor do array (`x = 30`).
+2. executamos o `return` (`acc - x`) obtendo o valor `-10` (`10 - 20 = -10`). Este `-10` vai ser o valor do próximo `acc`.
+3. `acc` toma o valor do último `return` (`acc = -10`) e `x` o do seguinte valor do array (`x = 30`).
 4. executamos o `return` (`acc - x`) obtendo o valor `-40` (`-10 - 30 = -40`). Este `-40` sería o valor do próximo `acc` pero como xa baleiramos o array pasa a ser o valor resultado final de `reduce`.
 
 As funcións como `minus`, **as veces**, reciben o nome de **reducers** ou **reductores**.
@@ -295,7 +307,7 @@ O resultado
 
 ### 1.9.1 Inconsistencias
 
-As Arrow Functions teñen algunha inconsistencia ao respecto da notación.
+As Arrow Functions teñen algunha inconsistencia ao respecto da notación
 
 ```js
 // 0 parámetro
@@ -313,9 +325,178 @@ x, y, z   => x + y - z;  // ❌
 
 ### 1.9.2 `return` implícito
 
-As Arrow Functions levan un `return` implícito, é dicir as duas funcións que veñen a continuación son equivalente.
+As Arrow Functions levan un `return` implícito, é dicir as duas funcións que veñen a continuación son equivalentes
 
 ```js
 (x, y, z) => x + y - z;
 (x, y, z) => return x + y - z;
 ```
+
+## INTERLUDIO: Interpolación de Strings
+
+> Cómo podemos facer para intercalar partes variables nun texto ou String?
+
+Moi sinxelo.
+
+1. Usamos `` para facer o String.
+2. Usamos `${}` para encapsular o que queremos intercalar
+
+```js
+function useMe(text) {
+  return `insert 👉 ${text} 👈`
+}
+
+useMe("one two three");
+useMe("four five six");
+```
+
+A proba
+
+![](./img/use-me.png)
+
+## INTERLUDIO: Emojis e Strings
+
+Os emojis son Strings (texto). A proba... Mirade 👆.
+
+## 1.10 ¿Por qué existen os parámetros?
+
+### 1.10.1 O problema
+
+Supoñamos que queremos facer unha función que me diga ola. Poderiamos pensar en facer algo coma
+
+```js
+function sayHiToDavid() {
+  return "Hello David 👽👾🤖";
+}
+```
+
+de xeito que poidamos invocala tal que así
+
+```js
+sayHiToDavid();
+```
+
+Vamos a ver que acontece
+
+![](./img/sayHiToDavid.png)
+
+Funciona!!! 👽
+
+O problema é que se queremos saudar a alguén que non sexa David temos que definir outra función diferente. Por exemplo
+
+```js
+function sayHiToYou() {
+  return "Hello You 👽👾🤖";
+}
+
+sayHiToYou();
+```
+
+E poderiamos seguir así ata o infinito definindo e usando unha chea de funcións moi semellantes.
+
+```js
+function sayHiToInsertNameHere {
+  return "Hello insertNameHere 👽👾🤖";
+}
+```
+
+A estas alturas xa vemos o problema. Somos moi concretos. Necesitamos ser mais abstractos. Necesitamos que o nome da persoa que queremos saudar poida cambiar.... ENTER PARAMETERS! 🐉🐉🐉
+
+### 1.10.2 A solución
+
+En vez de facer unha chea de función chamadas `sayHiToDavid`, `sayHiToYou`, `sayHiToKim`, `sayHiToSetsuko` imos definir unha soa función xenérica que nos permita especificar o nome a través dun parámetro
+
+```js
+function sayHiTo(name) {
+  return `Hello ${name} 👽👾🤖`;
+}
+```
+
+e agora podemos invocala con moitos nomes diferentes sen facer funcións novas
+
+```js
+sayHiTo("David");
+sayHiTo("You");
+sayHiTo("Kim");
+sayHiTo("Setsuko");
+```
+
+Comprobamos
+
+![](./img/sayHiTo.png)
+
+### 1.10.3 Conclusión
+
+Os parámetros (`name`) / argumentos (`David`, `You`, `Kim`, `Setsuko`) permítennos _encapsular_ as cousas que mudan. Dalgún xeito poderiamos dicir que unha función só debe usar os datos que sonlle pasados a través dos parámetros...
+
+Pero entón... qué acontece con `"hello".toUpperCase()`?
+
+## 1.11 O caso de `"hello".toUpperCase()`
+
+### 1.11.1 O primeiro problema
+
+A función `toUpperCase()` permite poñer en maiúsculas un texto (String)... pero funciona dun xeito raro, xa que o texto non vai como parámetro. Vexamos
+
+![](./img/hello-toUpperCase.png)
+
+Nembargante, `toUpperCase("hello")` non funciona...
+
+![](./img/toUpperCase-hello.png)
+
+Non imos explicar neste momento que está a acontecer... xa que obligarianos a falar dos **obxectos** e xa o faremos máis adiante... Pero ten que ver con ónde se almacenan as funcións que nos da JavaScript xa feitas.
+
+### 1.11.2 O segundo problema
+
+Imos tentar usar `toUpperCase()` cun `<array de textos>.map` a ver que acontece
+
+![](./img/map-toUpperCase.png)
+
+🤔🤔🤔
+
+Analicemos a forma de `<texto>.toUpperCase()`:
+
+- 0 entradas... `()`
+- 1 saida, o texto en maiúsculas
+
+Recordemos que `map` quere función como `add1(x)`
+
+- 1 entrada
+- 1 saida
+
+### 1.11.3 A solución
+
+> Poderiamos crear unha función que grite (`yell`) que sexa compatible con `map` e use dentro `toUpperCase()`?
+
+Claro que podemos
+
+```js
+function yell(text) {
+  return text.toUpperCase()
+}
+
+yell("me");
+```
+
+Aquí temos a proba
+
+![](./img/yell.png)
+
+> Pero, funciona con `map`?
+
+```js
+["hello", "hallo", "hola", "ola"].map(yell);
+```
+
+Comprobemos
+
+![](./img/map-yell.png)
+
+🥳🎉🎊
+
+### 1.11.4 Conclusion
+
+Se queremos usar unha función con `map` do estilo a `<text>.doSomething()` xa sabemos como convertila a `doSomething(text)`  para que funcione.
+
+### 1.11.5 Exercicio
+
+Probade con `"HELLO".toLowerCase()`. Convertídea para que funcione con `map`.
