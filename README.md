@@ -427,7 +427,7 @@ Comprobamos
 
 ### 1.10.3 Conclusión
 
-Os **parámetros** (`name`) / **argumentos** (`David`, `You`, `Kim`, `Setsuko`) permítennos _encapsular_ as cousas que mudan. Dalgún xeito poderiamos dicir que unha función só debe usar os datos que sonlle pasados a través dos parámetros...
+Os **parámetros** (`name`) / **argumentos** (`David`, `You`, `Kim`, `Setsuko`) permítennos _encapsular_ as cousas que mudan. Dalgún xeito poderiamos dicir que unha función só debe usar os datos que se lle pasan a través dos parámetros...
 
 Pero entón... qué acontece con `"hello".toUpperCase()`?
 
@@ -439,15 +439,19 @@ A función `toUpperCase()` permite poñer en maiúsculas un texto (String)... pe
 
 ![](./img/hello-toUpperCase.png)
 
-Nembargante, `toUpperCase("hello")` non funciona...
+Porén, `toUpperCase("hello")` non funciona...
 
 ![](./img/toUpperCase-hello.png)
 
-Non imos explicar neste momento que está a acontecer... xa que obligarianos a falar dos **obxectos** e xa o faremos máis adiante... Pero ten que ver con ónde se almacenan as funcións que nos da JavaScript xa feitas.
+Non imos explicar neste momento que está a acontecer... xa que obligaríanos a falar dos **obxectos** e xa o faremos máis adiante... Pero ten que ver con onde se almacenan as funcións que nos da JavaScript xa feitas.
 
 ### 1.11.2 O segundo problema
 
 Imos tentar usar `toUpperCase()` cun `<array de textos>.map` a ver que acontece
+
+```js
+["hello", "hallo", "hola", "ola"].map(yell);
+```
 
 ![](./img/map-toUpperCase.png)
 
@@ -458,7 +462,7 @@ Analicemos a forma de `<texto>.toUpperCase()`:
 - 0 entradas... `()`
 - 1 saida, o texto en maiúsculas
 
-Recordemos que `map` quere función como `add1(x)`
+Recordemos que `map` quere funcións como `add1(x)`
 
 - 1 entrada
 - 1 saida
