@@ -47,8 +47,8 @@ function add1(x) {
 ## 1.2 Invocación dunha función
 
 ```js
-add1(9) // Devolve un 10
-add1(4) // Devolve un 5
+add1(9); // Devolve un 10
+add1(4); // Devolve un 5
 ```
 
 ## 1.3 Anatomía dunha función (definición e invocación)
@@ -178,7 +178,7 @@ Debemos actualizar o concepto das caixas negras
 
 Podemos levar esta idea ainda máis alá. Considerade a seguinte función
 
-```
+```js
 function efectosSecundariosAndNoReturn(x) {
   console.log(x + 100);
   console.log('Ola!!!');
