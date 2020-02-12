@@ -35,6 +35,13 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.11.3 A solución](#1113-a-solución)
     - [1.11.4 Conclusion](#1114-conclusion)
     - [1.11.5 Exercicio](#1115-exercicio)
+  - [1.12 `myMap`, `myFilter`, `myReduce`](#112-mymap-myfilter-myreduce)
+    - [1.12.1 `<array>.map(function)`](#1121-arraymapfunction)
+    - [1.12.2 `myMap`](#1122-mymap)
+    - [1.12.3 `<array>.filter(function)`](#1123-arrayfilterfunction)
+    - [1.12.4 `myFilter`](#1124-myfilter)
+    - [1.12.5 `<array>.reduce(function)`](#1125-arrayreducefunction)
+    - [1.12.6 `myReduce`](#1126-myreduce)
 
 ## 1.1 Definición dunha función
 
