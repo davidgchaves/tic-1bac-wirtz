@@ -37,11 +37,11 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.11.5 Exercicio](#1115-exercicio)
   - [1.12 `myMap`, `myFilter`, `myReduce`](#112-mymap-myfilter-myreduce)
     - [1.12.1 `<array>.map(function)`](#1121-arraymapfunction)
-    - [1.12.2 `myMap`](#1122-mymap)
+    - [1.12.2 `myMap(coleccion, funcion)`](#1122-mymapcoleccion-funcion)
     - [1.12.3 `<array>.filter(function)`](#1123-arrayfilterfunction)
-    - [1.12.4 `myFilter`](#1124-myfilter)
+    - [1.12.4 `myFilter(coleccion, predicado)`](#1124-myfiltercoleccion-predicado)
     - [1.12.5 `<array>.reduce(function)`](#1125-arrayreducefunction)
-    - [1.12.6 `myReduce`](#1126-myreduce)
+    - [1.12.6 `myReduce(coleccion, funcion)`](#1126-myreducecoleccion-funcion)
 
 ## 1.1 Definición dunha función
 
@@ -566,7 +566,7 @@ Recordemos como funcionaba `map`
 
 Pero `map` fai trampas porque usa unha colección extra. No exemplo de arriba `[10, 20, 30, 40]`.
 
-### 1.12.2 `myMap`
+### 1.12.2 `myMap(coleccion, funcion)`
 
 Queremos face unha función `myMap` que siga a seguinte descripción
 
@@ -615,7 +615,7 @@ Recordemos como funcionaba `filter`
 
 Pero `filter` fai trampas (as mesmas trampas que `map`) porque usa unha colección extra. No exemplo de arriba `[10, 20, 30, 40]`.
 
-### 1.12.4 `myFilter`
+### 1.12.4 `myFilter(coleccion, predicado)`
 
 Queremos face unha función `myFilter` que siga a seguinte descripción
 
@@ -664,7 +664,7 @@ Recordemos como funcionaba `reduce`
 
 Pero `reduce` fai trampas porque usa unha colección extra. No exemplo de arriba `[10, 20, 30, 40]`.
 
-### 1.12.6 `myReduce`
+### 1.12.6 `myReduce(coleccion, funcion)`
 
 Queremos face unha función `myReduce` que siga a seguinte descripción
 
