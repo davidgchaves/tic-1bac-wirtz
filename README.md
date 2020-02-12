@@ -568,7 +568,7 @@ Pero `map` fai trampas porque usa unha colección extra. No exemplo de arriba `[
 
 ### 1.12.2 `myMap(coleccion, funcion)`
 
-Queremos face unha función `myMap` que siga a seguinte descripción
+Queremos facer unha función `myMap` que siga a seguinte descripción
 
 ```
                ---------
@@ -617,7 +617,7 @@ Pero `filter` fai trampas (as mesmas trampas que `map`) porque usa unha colecci�
 
 ### 1.12.4 `myFilter(coleccion, predicado)`
 
-Queremos face unha función `myFilter` que siga a seguinte descripción
+Queremos facer unha función `myFilter` que siga a seguinte descripción
 
 ```
                ------------
@@ -666,7 +666,7 @@ Pero `reduce` fai trampas porque usa unha colección extra. No exemplo de arriba
 
 ### 1.12.6 `myReduce(coleccion, funcion)`
 
-Queremos face unha función `myReduce` que siga a seguinte descripción
+Queremos facer unha función `myReduce` que siga a seguinte descripción
 
 ```
                ------------
