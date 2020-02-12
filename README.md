@@ -504,3 +504,184 @@ Se queremos usar unha función con `map` do estilo a `<text>.doSomething()` xa s
 ### 1.11.5 Exercicio
 
 Probade con `"HELLO".toLowerCase()`. Convertídea para que funcione con `map`.
+
+`.toLowerCase` funciona así
+
+```js
+"I'M ANGRY!".toLowerCase();
+```
+
+Tal e como podemos comprobar 👇
+
+![](./img/toLowerCase.png)
+
+Entón podemos facer `chillTheFunkOut`
+
+```js
+function chillTheFunkOut(text) {
+  return text.toLowerCase();
+}
+
+chillTheFunkOut("I'M ANGRY!");
+```
+
+Asegurámonos de que funcione 👇
+
+![](./img/chillTheFunkOut.png)
+
+Que efectivamente funciona con `map`
+
+```js
+["hello", "hallo", "hola", "ola"].map(chillTheFunkOut);
+```
+
+![](./img/map-chillTheFunkOut.png)
+
+## 1.12 `myMap`, `myFilter`, `myReduce`
+
+### 1.12.1 `<array>.map(function)`
+
+Recordemos como funcionaba `map`
+
+```js
+[10, 20, 30, 40].map(x => x + 1);
+```
+
+É dicir
+
+```
+      -------
+      |     |
+ fn → | map | → colección
+      |     |
+      -------
+```
+
+Pero `map` fai trampas porque usa unha colección extra. No exemplo de arriba `[10, 20, 30, 40]`.
+
+### 1.12.2 `myMap`
+
+Queremos face unha función `myMap` que siga a seguinte descripción
+
+```
+               ---------
+  coleccion1 → |       |
+               | myMap | → coleccion2
+          fn → |       |
+               ---------
+```
+
+e que internamente use `<array>.map(function)`.
+
+```js
+function myMap(coleccion, funcion) {
+  return coleccion.map(funcion);
+}
+
+myMap(
+  [10, 20, 30, 40],
+  x => x + 1
+);
+```
+
+Comprobamos
+
+![](./img/myMap.png)
+
+### 1.12.3 `<array>.filter(function)`
+
+Recordemos como funcionaba `filter`
+
+```js
+[10, 20, 30, 40].filter(x => x > 15);
+```
+
+É dicir
+
+```
+      ----------
+      |        |
+ fn → | filter | → colección
+      |        |
+      ----------
+```
+
+Pero `filter` fai trampas (as mesmas trampas que `map`) porque usa unha colección extra. No exemplo de arriba `[10, 20, 30, 40]`.
+
+### 1.12.4 `myFilter`
+
+Queremos face unha función `myFilter` que siga a seguinte descripción
+
+```
+               ------------
+  coleccion1 → |          |
+               | myFilter | → coleccion2
+   predicado → |          |
+               ------------
+```
+
+e que internamente use `<array>.filter(function)`.
+
+```js
+function myFilter(coleccion, predicado) {
+  return coleccion.filter(predicado);
+}
+
+myFilter(
+  [10, 20, 30, 40],
+  x => x > 15
+);
+```
+
+Comprobamos
+
+![](./img/myFilter.png)
+
+### 1.12.5 `<array>.reduce(function)`
+
+Recordemos como funcionaba `reduce`
+
+```js
+[10, 20, 30, 40].reduce((x,y) => x + y);
+```
+
+É dicir
+
+```
+      ----------
+      |        |
+ fn → | reduce | → valor
+      |        |
+      ----------
+```
+
+Pero `reduce` fai trampas porque usa unha colección extra. No exemplo de arriba `[10, 20, 30, 40]`.
+
+### 1.12.6 `myReduce`
+
+Queremos face unha función `myReduce` que siga a seguinte descripción
+
+```
+               ------------
+  coleccion1 → |          |
+               | myReduce | → coleccion2
+          fn → |          |
+               ------------
+```
+
+e que internamente use `<array>.reduce(function)`.
+
+```js
+function myReduce(coleccion, funcion) {
+  return coleccion.reduce(funcion);
+}
+
+myReduce(
+  [10, 20, 30, 40],
+  (x,y) => x + y
+);
+```
+
+Comprobamos
+
+![](./img/myReduce.png)
