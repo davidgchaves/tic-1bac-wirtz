@@ -671,7 +671,7 @@ Queremos face unha función `myReduce` que siga a seguinte descripción
 ```
                ------------
   coleccion1 → |          |
-               | myReduce | → coleccion2
+               | myReduce | → valor
           fn → |          |
                ------------
 ```
