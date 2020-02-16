@@ -42,6 +42,17 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.12.4 `myFilter(coleccion, predicado)`](#1124-myfiltercoleccion-predicado)
     - [1.12.5 `<array>.reduce(function)`](#1125-arrayreducefunction)
     - [1.12.6 `myReduce(coleccion, funcion)`](#1126-myreducecoleccion-funcion)
+  - [1.13 Notación xeral sobre tipos e funcións](#113-notación-xeral-sobre-tipos-e-funcións)
+    - [1.13.1 `add1`](#1131-add1)
+    - [1.13.2 `add`](#1132-add)
+    - [1.13.3 `<string>.toUpperCase` e `yell`](#1133-stringtouppercase-e-yell)
+    - [1.13.4 `<string>.toLowerCase` e `chillTheFunkOut`](#1134-stringtolowercase-e-chillthefunkout)
+    - [1.13.5 `<array>.map(function)` e `myMap`](#1135-arraymapfunction-e-mymap)
+    - [1.13.6 `<array>.filter(predicate)` e `myFilter`](#1136-arrayfilterpredicate-e-myfilter)
+    - [1.13.7 `<array>.reduce(function)` e `myReduce`](#1137-arrayreducefunction-e-myreduce)
+    - [1.13.8 Consideracións extra](#1138-consideracións-extra)
+    - [1.13.9 Derivando unha fórmula xenérica para `myMap`](#1139-derivando-unha-fórmula-xenérica-para-mymap)
+    - [1.13.10 Cal é o tipo da función `Fn` que aparece en `myMap`?](#11310-cal-é-o-tipo-da-función-fn-que-aparece-en-mymap)
 
 ## 1.1 Definición dunha función
 
@@ -692,3 +703,332 @@ myReduce(
 Comprobamos
 
 ![](./img/myReduce.png)
+
+## 1.13 Notación xeral sobre tipos e funcións
+
+Imos definir unha notación xeral para falar de tipos, funcións, parámetros e retorno.
+
+### 1.13.1 `add1`
+
+Consideremos a función `add1`
+
+```js
+function add1(x) {
+  return x + 1;
+}
+```
+
+Quedáramos en que `add1`:
+
+- Recibe un só parámetro `x` i esperamos ademais que sexa un `Num`ero.
+- Devolve un só valor `x + 1` que tamén esperamos que sexa un `Num`ero.
+
+Poderiamos expresar toda esa información do seguinte xeito
+
+```js
+//       add1 :: Number → Number
+function add1(x) {
+  return x + 1;
+}
+```
+
+### 1.13.2 `add`
+
+Consideremos agora a función `add`
+
+```js
+function add(x, y) {
+  return x + y;
+}
+```
+
+Quedáramos en que `add`:
+
+- Recibe 2 parámetros `x` e `y` i esperamos ambos sexan `Num`eros.
+- Devolve un só valor `x + y` que tamén esperamos que sexa un `Num`ero.
+
+Poderiamos expresar toda esa información do seguinte xeito
+
+```js
+//       add :: Number → Number → Numbre
+function add(x, y) {
+  return x + y;
+}
+```
+
+### 1.13.3 `<string>.toUpperCase` e `yell`
+
+Estas dúas funcións son mais interesantes xa que fan o mesmo pero veremos como a súa descrición non coincide. Comezamos por `<string>.toUpperCase`
+
+```js
+"Hello".toUpperCase();
+```
+
+`toUpperCase`:
+
+- Recibe 0 parámetros `()`.
+- Devolve un só valor que esperamos sexa un `String`.
+
+Poderiamos expresar toda esa información do seguinte xeito
+
+```js
+//      toUpperCase :: () → String
+"Hello".toUpperCase();
+```
+
+O mais complicado deste caso 👆 e percatarnos de que pese a que `toUpperCase` utiliza o String `"Hello"`, éste non é pasado como parámetro `()` polo que non computa na nosa descrición. Porén, arranxamos iso con `yell`
+
+```js
+function yell(text) {
+  return text.toUpperCase()
+}
+```
+
+`yell`:
+
+- Recibe 1 parámetro `text` que esperamos sexa un `String`.
+- Devolve un só valor que esperamos sexa outro `String`.
+
+Polo tanto
+
+```js
+//       yell :: String → String
+function yell(text) {
+  return text.toUpperCase()
+}
+```
+
+Comparemos a descripción de `<string>.toUpperCase` coa de `yell`
+
+```js
+// toUpperCase :: ()     → String
+//        yell :: String → String
+```
+
+Pese a que fan o mesmo, a descrición é diferente.
+
+### 1.13.4 `<string>.toLowerCase` e `chillTheFunkOut`
+
+O mesmo caso de antes, 2 funcións que fan o mesmo e teñen descricións diferentes.
+
+```js
+//      toLowerCase :: () → String
+"HELLO".toLowerCase();
+
+//       chillTheFunkOut :: String → String
+function chillTheFunkOut(text) {
+  return text.toLowerCase();
+}
+```
+
+Comparemos as descricións de `<string>.toUpperCase`, `yell`, `<string>.toLowerCase` e `chillTheFunkOut`
+
+```js
+//     toUpperCase :: ()     → String
+//            yell :: String → String
+//     toLowerCase :: ()     → String
+// chillTheFunkOut :: String → String
+```
+
+### 1.13.5 `<array>.map(function)` e `myMap`
+
+Algo parecido acontece tamén con `<array>.map(function)` e `myMap`. Fan o mesmo pero teñen descricións diferentes. Imos usar `Fn` para simbolizar `Function`.
+
+```js
+//               map :: Fn → Array Number
+[10, 20, 30, 40].map(x => x + 1);
+
+//       myMap :: Array Number → Fn → Array Number
+function myMap(coleccion, funcion) {
+  return coleccion.map(funcion);
+}
+```
+
+Comparemos as descricións de ambas
+
+```js
+//   map ::                Fn → Array Number
+// myMap :: Array Number → Fn → Array Number
+```
+
+### 1.13.6 `<array>.filter(predicate)` e `myFilter`
+
+O mesmo caso que con `map` e `myMap`
+
+```js
+//               filter :: Fn → Array Number
+[10, 20, 30, 40].filter(x => x > 15);
+
+//       myFilter :: Array Number → Fn → Array Number
+function myFilter(coleccion, predicado) {
+  return coleccion.filter(predicado);
+}
+```
+
+Recordade que un `predicate` (predicado) é unha función (o que acontece é que é unha función que retorna un booleano: `true` ou `false`).
+
+```js
+//   filter ::                Fn → Array Number
+// myFilter :: Array Number → Fn → Array Number
+```
+
+### 1.13.7 `<array>.reduce(function)` e `myReduce`
+
+O mesmo caso de `map` e `myMap` e de `filter` e `myFilter`
+
+```js
+//               reduce :: Fn → Number
+[10, 20, 30, 40].filter((x,y) => x + y);
+
+//       myReduce :: Array Number → Fn → Number
+function myReduce(coleccion, funcion) {
+  return coleccion.reduce(funcion);
+}
+```
+
+Agora as descricións comparadas
+
+```js
+//   reduce ::                Fn → Number
+// myReduce :: Array Number → Fn → Number
+```
+
+Novamente, 32 funcións que fan o mesmo teñen descricións diferentes.
+
+### 1.13.8 Consideracións extra
+
+1. A descrición de funcións mediante os tipos **non consideran un efecto secundario como unha saída!**.
+2. Cando usamos a notación `<algo>.funcion(...)`, `algo` non conta como entrada.
+
+### 1.13.9 Derivando unha fórmula xenérica para `myMap`
+
+Recordemos `myMap`
+
+```js
+function myMap(coleccion, funcion) {
+  return coleccion.map(funcion);
+}
+```
+
+`myMap` pode ter todas estas descricións (pode incluso ter máis)
+
+```js
+myMap :: Array Number → Fn → Array String
+myMap :: Array Number → Fn → Array Number
+myMap :: Array String → Fn → Array String
+myMap :: Array String → Fn → Array Number
+```
+
+É certo que todavía no vimos exemplos de función coa seguinte forma ou descrición
+
+```js
+nonVista1 :: Number → String
+nonVista2 :: String → Number
+```
+
+pero existen.
+
+> Qué é o que cambia nas descricións de `myMap`?
+
+`String` e `Number`
+
+> Podemos facer ainda máis xenérica a descrición de `myMap`?
+
+Sí que podemos. Do mesmo xeito que é costume usar `x` e `y` como nomes dos parametros das funcións que como `add` reciben 2 números. Recordemos 👇
+
+```js
+function add(x, y) {
+  return x + y;
+}
+```
+
+É costume usar `a` e `b` do mesmo xeito na descrición de funcións. É dicir 👇
+
+```js
+// myMap :: Array a → Fn → Array b
+```
+
+E ao igual que `x` e `y` poden valer calquera número
+
+```
+add(3,5);
+add(9,14);
+```
+
+`a` e `b` poden ser calquera tipo
+
+```js
+// myMap :: Array a → Fn → Array b
+
+// a: Number, b: Number
+// myMap :: Array Number → Fn → Array Number
+
+// a: String, b: String
+// myMap :: Array String → Fn → Array String
+
+// a: Number, b: String
+// myMap :: Array Number → Fn → Array String
+
+// a: String, b: Number
+// myMap :: Array String → Fn → Array Number
+```
+
+Agora todas xuntas
+
+```js
+// myMap :: Array a      → Fn → Array b
+// myMap :: Array Number → Fn → Array Number
+// myMap :: Array String → Fn → Array String
+// myMap :: Array Number → Fn → Array String
+// myMap :: Array String → Fn → Array Number
+```
+
+### 1.13.10 Cal é o tipo da función `Fn` que aparece en `myMap`?
+
+Vexamos uns cantos exemplos de funcións que sabemos que funcionan con `map` e tamén con `myMap`
+
+```js
+//       add1 :: Number → Number
+function add1(x) {
+  return x + 1;
+}
+
+//       yell :: String → String
+function yell(text) {
+  return text.toUpperCase();
+}
+```
+
+É dicir
+
+```js
+// add1 :: Number → Number
+// yell :: String → String
+```
+
+Parece que teñen a forma
+
+```
+// xxxx :: a → a
+```
+
+Todas xuntas
+
+```js
+// xxxx :: a      → a
+// add1 :: Number → Number
+// yell :: String → String
+```
+
+**NOTA**: Na clase do mércores 19 vemos polo menos un exemplo de funcións que teñen a seguinte forma
+
+```
+// xxx1 :: String → Number
+// xxx2 :: Number → String
+```
+
+A forma das funcións `Fn` que admite `map` e polo tanto `myMap` é
+
+```js
+mapeable :: a → b
+```
