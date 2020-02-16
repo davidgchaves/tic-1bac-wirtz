@@ -720,8 +720,8 @@ function add1(x) {
 
 Quedáramos en que `add1`:
 
-- Recibe un só parámetro `x` i esperamos ademais que sexa un `Num`ero.
-- Devolve un só valor `x + 1` que tamén esperamos que sexa un `Num`ero.
+- Recibe un só parámetro `x` i esperamos ademais que sexa un Número.
+- Devolve un só valor `x + 1` que tamén esperamos que sexa un Número.
 
 Poderiamos expresar toda esa información do seguinte xeito
 
@@ -744,13 +744,13 @@ function add(x, y) {
 
 Quedáramos en que `add`:
 
-- Recibe 2 parámetros `x` e `y` i esperamos ambos sexan `Num`eros.
-- Devolve un só valor `x + y` que tamén esperamos que sexa un `Num`ero.
+- Recibe 2 parámetros `x` e `y` i esperamos ambos sexan Números.
+- Devolve un só valor `x + y` que tamén esperamos que sexa un Número.
 
 Poderiamos expresar toda esa información do seguinte xeito
 
 ```js
-//       add :: Number → Number → Numbre
+//       add :: Number → Number → Number
 function add(x, y) {
   return x + y;
 }
@@ -776,7 +776,7 @@ Poderiamos expresar toda esa información do seguinte xeito
 "Hello".toUpperCase();
 ```
 
-O mais complicado deste caso 👆 e percatarnos de que pese a que `toUpperCase` utiliza o String `"Hello"`, éste non é pasado como parámetro `()` polo que non computa na nosa descrición. Porén, arranxamos iso con `yell`
+O mais complicado deste caso 👆 é percatarnos de que pese a que `toUpperCase` utiliza o `String` `"Hello"`, éste non é pasado como parámetro `()` polo que non computa na nosa descrición. Porén, arranxamos iso con `yell`
 
 ```js
 function yell(text) {
@@ -801,8 +801,8 @@ function yell(text) {
 Comparemos a descripción de `<string>.toUpperCase` coa de `yell`
 
 ```js
-// toUpperCase :: ()     → String
-//        yell :: String → String
+toUpperCase :: ()     → String
+       yell :: String → String
 ```
 
 Pese a que fan o mesmo, a descrición é diferente.
@@ -824,10 +824,10 @@ function chillTheFunkOut(text) {
 Comparemos as descricións de `<string>.toUpperCase`, `yell`, `<string>.toLowerCase` e `chillTheFunkOut`
 
 ```js
-//     toUpperCase :: ()     → String
-//            yell :: String → String
-//     toLowerCase :: ()     → String
-// chillTheFunkOut :: String → String
+    toUpperCase :: ()     → String
+           yell :: String → String
+    toLowerCase :: ()     → String
+chillTheFunkOut :: String → String
 ```
 
 ### 1.13.5 `<array>.map(function)` e `myMap`
@@ -847,8 +847,8 @@ function myMap(coleccion, funcion) {
 Comparemos as descricións de ambas
 
 ```js
-//   map ::                Fn → Array Number
-// myMap :: Array Number → Fn → Array Number
+  map ::                Fn → Array Number
+myMap :: Array Number → Fn → Array Number
 ```
 
 ### 1.13.6 `<array>.filter(predicate)` e `myFilter`
@@ -868,8 +868,8 @@ function myFilter(coleccion, predicado) {
 Recordade que un `predicate` (predicado) é unha función (o que acontece é que é unha función que retorna un booleano: `true` ou `false`).
 
 ```js
-//   filter ::                Fn → Array Number
-// myFilter :: Array Number → Fn → Array Number
+  filter ::                Fn → Array Number
+myFilter :: Array Number → Fn → Array Number
 ```
 
 ### 1.13.7 `<array>.reduce(function)` e `myReduce`
@@ -889,11 +889,11 @@ function myReduce(coleccion, funcion) {
 Agora as descricións comparadas
 
 ```js
-//   reduce ::                Fn → Number
-// myReduce :: Array Number → Fn → Number
+  reduce ::                Fn → Number
+myReduce :: Array Number → Fn → Number
 ```
 
-Novamente, 32 funcións que fan o mesmo teñen descricións diferentes.
+Novamente, 2 funcións que fan o mesmo teñen descricións diferentes.
 
 ### 1.13.8 Consideracións extra
 
@@ -945,7 +945,7 @@ function add(x, y) {
 É costume usar `a` e `b` do mesmo xeito na descrición de funcións. É dicir 👇
 
 ```js
-// myMap :: Array a → Fn → Array b
+myMap :: Array a → Fn → Array b
 ```
 
 E ao igual que `x` e `y` poden valer calquera número
@@ -958,29 +958,29 @@ add(9,14);
 `a` e `b` poden ser calquera tipo
 
 ```js
-// myMap :: Array a → Fn → Array b
+myMap :: Array a → Fn → Array b
 
 // a: Number, b: Number
-// myMap :: Array Number → Fn → Array Number
+myMap :: Array Number → Fn → Array Number
 
 // a: String, b: String
-// myMap :: Array String → Fn → Array String
+myMap :: Array String → Fn → Array String
 
 // a: Number, b: String
-// myMap :: Array Number → Fn → Array String
+myMap :: Array Number → Fn → Array String
 
 // a: String, b: Number
-// myMap :: Array String → Fn → Array Number
+myMap :: Array String → Fn → Array Number
 ```
 
 Agora todas xuntas
 
 ```js
-// myMap :: Array a      → Fn → Array b
-// myMap :: Array Number → Fn → Array Number
-// myMap :: Array String → Fn → Array String
-// myMap :: Array Number → Fn → Array String
-// myMap :: Array String → Fn → Array Number
+myMap :: Array a      → Fn → Array b
+myMap :: Array Number → Fn → Array Number
+myMap :: Array String → Fn → Array String
+myMap :: Array Number → Fn → Array String
+myMap :: Array String → Fn → Array Number
 ```
 
 ### 1.13.10 Cal é o tipo da función `Fn` que aparece en `myMap`?
@@ -1002,29 +1002,29 @@ function yell(text) {
 É dicir
 
 ```js
-// add1 :: Number → Number
-// yell :: String → String
+add1 :: Number → Number
+yell :: String → String
 ```
 
 Parece que teñen a forma
 
-```
-// xxxx :: a → a
+```js
+xxxx :: a → a
 ```
 
 Todas xuntas
 
 ```js
-// xxxx :: a      → a
-// add1 :: Number → Number
-// yell :: String → String
+xxxx :: a      → a
+add1 :: Number → Number
+yell :: String → String
 ```
 
-**NOTA**: Na clase do mércores 19 vemos polo menos un exemplo de funcións que teñen a seguinte forma
+**NOTA**: Na clase do mércores 19 veremos polo menos un exemplo de funcións que teñan a seguinte forma
 
-```
-// xxx1 :: String → Number
-// xxx2 :: Number → String
+```js
+xxx1 :: String → Number
+xxx2 :: Number → String
 ```
 
 A forma das funcións `Fn` que admite `map` e polo tanto `myMap` é
