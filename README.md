@@ -53,6 +53,7 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.13.8 Consideracións extra](#1138-consideracións-extra)
     - [1.13.9 Derivando unha fórmula xenérica para `myMap`](#1139-derivando-unha-fórmula-xenérica-para-mymap)
     - [1.13.10 Cal é o tipo da función `Fn` que aparece en `myMap`?](#11310-cal-é-o-tipo-da-función-fn-que-aparece-en-mymap)
+  - [1.14 Exemplo de clase `myMap` e `String`s](#114-exemplo-de-clase-mymap-e-strings)
 
 ## 1.1 Definición dunha función
 
@@ -1032,3 +1033,35 @@ A forma das funcións `Fn` que admite `map` e polo tanto `myMap` é
 ```js
 mapeable :: a → b
 ```
+
+## 1.14 Exemplo de clase `myMap` e `String`s
+
+```js
+//       myMap :: Array a → Fn → Array b
+function myMap(coleccion, funcionMapeable) {
+  return coleccion.map(funcionMapeable);
+}
+
+//       add100 :: Number → Number
+function add100(number) {
+  return x + 100;
+}
+
+myMap([1,2,3,4,5], number => number + 100);
+
+const arrayDeStrings = ["ola", "hello", "hallo", "hola";
+
+textos
+
+
+//       yell :: String → String
+function yell(texto) {
+  return texto.upUpperCase();  // 👈👀 recordade o return
+}
+
+myMap(textos, yell);
+
+textos.map(yell);
+```
+
+TODO: En breve subo o resultado de executalo na consola do Firefox.
