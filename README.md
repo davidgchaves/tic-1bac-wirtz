@@ -54,6 +54,10 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.13.9 Derivando unha fórmula xenérica para `myMap`](#1139-derivando-unha-fórmula-xenérica-para-mymap)
     - [1.13.10 Cal é o tipo da función `Fn` que aparece en `myMap`?](#11310-cal-é-o-tipo-da-función-fn-que-aparece-en-mymap)
   - [1.14 Exemplo de clase `myMap` e `String`s](#114-exemplo-de-clase-mymap-e-strings)
+    - [1.14.1 Definición e uso de `myMap` e `add100`](#1141-definición-e-uso-de-mymap-e-add100)
+    - [1.14.2 Definición e uso de `myMap` e `yell`](#1142-definición-e-uso-de-mymap-e-yell)
+    - [1.14.3 Renomeado](#1143-renomeado)
+    - [1.14.4 Podemos renomear 2 veces?](#1144-podemos-renomear-2-veces)
 
 ## 1.1 Definición dunha función
 
@@ -1036,6 +1040,8 @@ mapeable :: a → b
 
 ## 1.14 Exemplo de clase `myMap` e `String`s
 
+### 1.14.1 Definición e uso de `myMap` e `add100`
+
 ```js
 //       myMap :: Array a → Fn → Array b
 function myMap(coleccion, funcionMapeable) {
@@ -1044,24 +1050,78 @@ function myMap(coleccion, funcionMapeable) {
 
 //       add100 :: Number → Number
 function add100(number) {
-  return x + 100;
+  return number + 100;
 }
 
+myMap([1,2,3,4,5], add100);
+
 myMap([1,2,3,4,5], number => number + 100);
+```
 
-const arrayDeStrings = ["ola", "hello", "hallo", "hola";
+Resultado de executalo na consola do Firefox 👇
 
-textos
+![](./img/myMap-e-add100.png)
 
+### 1.14.2 Definición e uso de `myMap` e `yell`
+
+```js
+//       myMap :: Array a → Fn → Array b
+function myMap(coleccion, funcionMapeable) {
+  return coleccion.map(funcionMapeable);
+}
 
 //       yell :: String → String
 function yell(texto) {
-  return texto.upUpperCase();  // 👈👀 recordade o return
+  return texto.toUpperCase();  // 👈👀 recordade o return
 }
+
+myMap(["ola", "hello", "hallo", "hola"], yell);
+
+myMap(["ola", "hello", "hallo", "hola"], texto => texto.toUpperCase());
+```
+
+Resultado de executalo na consola do Firefox 👇
+
+![](./img/myMap-e-yell.png)
+
+### 1.14.3 Renomeado
+
+```js
+/* 👀 supoñemos que myMap e yell están definidos de antes 👀 */
+
+// Dámoslle o nome textos ao Array
+const textos = ["ola", "hello", "hallo", "hola"];
+
+// Podemos usar o Array ou o nome textos
+textos
 
 myMap(textos, yell);
 
 textos.map(yell);
 ```
 
-TODO: En breve subo o resultado de executalo na consola do Firefox.
+Resultado de executalo na consola do Firefox 👇
+
+![](./img/renomeado.png)
+
+### 1.14.4 Podemos renomear 2 veces?
+
+Imos probar o seguinte código a ver se funciona
+
+```js
+const saudos = ["ola", "hello", "hallo", "hola"];
+
+saudos;
+
+const saudos = ["abur", "ciao", "arrivederci", "bye"];
+
+const despedidas = ["abur", "ciao", "arrivederci", "bye"];
+```
+
+Probamos
+
+![](./img/redeclaration.png)
+
+💩👎👎👎
+
+Non podemos.
