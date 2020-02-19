@@ -878,7 +878,7 @@ O mesmo caso de `map` e `myMap` e de `filter` e `myFilter`
 
 ```js
 //               reduce :: Fn → Number
-[10, 20, 30, 40].filter((x,y) => x + y);
+[10, 20, 30, 40].reduce((x,y) => x + y);
 
 //       myReduce :: Array Number → Fn → Number
 function myReduce(coleccion, funcion) {
