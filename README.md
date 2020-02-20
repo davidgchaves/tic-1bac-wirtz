@@ -53,7 +53,7 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.13.8 Consideracións extra](#1138-consideracións-extra)
     - [1.13.9 Derivando unha fórmula xenérica para `myMap`](#1139-derivando-unha-fórmula-xenérica-para-mymap)
     - [1.13.10 Cal é o tipo da función `Fn` que aparece en `myMap`?](#11310-cal-é-o-tipo-da-función-fn-que-aparece-en-mymap)
-  - [1.14 Exemplo visto na clase: `myMap` e `String`s](#114-exemplo-visto-na-clase-mymap-e-strings)
+  - [1.14 Exemplo de tipos visto na clase: `myMap` e `String`s](#114-exemplo-de-tipos-visto-na-clase-mymap-e-strings)
     - [1.14.1 Definición e uso de `myMap` e `add100`](#1141-definición-e-uso-de-mymap-e-add100)
     - [1.14.2 Definición e uso de `myMap` e `yell`](#1142-definición-e-uso-de-mymap-e-yell)
     - [1.14.3 Renomeado](#1143-renomeado)
@@ -1038,7 +1038,7 @@ A forma das funcións `Fn` que admite `map` e polo tanto `myMap` é
 mapeable :: a → b
 ```
 
-## 1.14 Exemplo visto na clase: `myMap` e `String`s
+## 1.14 Exemplo de tipos visto na clase: `myMap` e `String`s
 
 ### 1.14.1 Definición e uso de `myMap` e `add100`
 
