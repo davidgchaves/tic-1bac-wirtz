@@ -1,3 +1,7 @@
+# Curso para o entroido
+
+Curso para o entroido [Complete Intro to Web Development v2](https://frontendmasters.com/courses/web-development-v2/). As partes **Learning HTML** e **Learning CSS**. É un curso gratuito, so tedes que rexistrarvos 🎁.
+
 # Funcións
 
 Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
@@ -9,6 +13,7 @@ Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemo
 
 ## Índice
 
+- [Curso para o entroido](#curso-para-o-entroido)
 - [Funcións](#funcións)
   - [Índice](#Índice)
   - [1.1 Definición dunha función](#11-definición-dunha-función)
