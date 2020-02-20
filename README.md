@@ -60,7 +60,6 @@ Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemo
     - [1.14.2 Definición e uso de `myMap` e `yell`](#1142-definición-e-uso-de-mymap-e-yell)
     - [1.14.3 Renomeado](#1143-renomeado)
     - [1.14.4 Podemos renomear 2 veces?](#1144-podemos-renomear-2-veces)
-  - [(Apuntamentos iniciais para o xoves 20 de febreiro) 1.15](#apuntamentos-iniciais-para-o-xoves-20-de-febreiro-115)
   - [1.15 As 3 cousas que podemos facer coas funcións](#115-as-3-cousas-que-podemos-facer-coas-funcións)
     - [1.15.1 Definilas](#1151-definilas)
       - [1.15.1.1 Function definition, function declaration o function statement](#11511-function-definition-function-declaration-o-function-statement)
@@ -68,7 +67,10 @@ Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemo
     - [1.15.2 Invocalas](#1152-invocalas)
       - [1.15.2.1 GOTCHA - COIDADO](#11521-gotcha---coidado)
     - [1.15.3 Usalas como valores](#1153-usalas-como-valores)
-      - [1.15.3.1 GOTCHA - COIDADO](#11531-gotcha---coidado)
+      - [1.15.3.1 Exemplo de renomeado](#11531-exemplo-de-renomeado)
+      - [1.15.3.2 Exemplo de argumentos de funcións](#11532-exemplo-de-argumentos-de-funcións)
+      - [1.15.3.3 Exemplo de retornado de función](#11533-exemplo-de-retornado-de-función)
+      - [1.15.3.4 GOTCHA - COIDADO](#11534-gotcha---coidado)
   - [1.16 Definir e invocar funcións inmediatamente (IIFE)](#116-definir-e-invocar-funcións-inmediatamente-iife)
     - [1.16.1 Exercicio 1a: ⁉️ Exemplo IIFE (1)](#1161-exercicio-1a-️-exemplo-iife-1)
     - [1.16.2 Exercicio 1b: ⁉️ Exemplo IIFE (2)](#1162-exercicio-1b-️-exemplo-iife-2)
@@ -81,6 +83,7 @@ Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemo
   - [1.18 `console` Object e o caso dos obxectos tramposos 🕵️‍♀️🔍](#118-console-object-e-o-caso-dos-obxectos-tramposos-️️)
     - [1.18.1 Métodos](#1181-métodos)
     - [1.18.2 Tarefa: Inspeccionar 🔍 o obxecto `console` nas Dev Tools](#1182-tarefa-inspeccionar--o-obxecto-console-nas-dev-tools)
+    - [1.18.3 Tarefa: Inspeccionar 🔍 os `array`s coma obxectos nas Dev Tools](#1183-tarefa-inspeccionar--os-arrays-coma-obxectos-nas-dev-tools)
 
 ## 1.1 Definición dunha función
 
@@ -1149,8 +1152,6 @@ Probamos
 
 Non podemos.
 
-## (Apuntamentos iniciais para o xoves 20 de febreiro) 1.15
-
 ## 1.15 As 3 cousas que podemos facer coas funcións
 
 ### 1.15.1 Definilas
@@ -1222,7 +1223,31 @@ Polo feito de ser valores, podemos
 
 Ata o de agora, na clase, só fixemos o **punto 2** (pasalas a outras funcións). Nunca renomeamos unha función (**punto 1**) e nunca devolvimos unha función (**punto 2**).
 
-Como exemplo do punto 2, consideremos `add1` (supoñendo que previamente a definiramos),
+#### 1.15.3.1 Exemplo de renomeado
+
+Sen entrar na utilidade que ten esto, estamos a referirnos a 👇
+
+```js
+const suma50 = (x) => x + 50;
+```
+
+![](./img/suma50.png)
+
+ou ben a esto 👇
+
+```js
+const suma51 = function add51(x) {
+  return x + 51;
+}
+```
+
+![](./img/suma51.png)
+
+#### 1.15.3.2 Exemplo de argumentos de funcións
+
+**Fixémolo moitas veces na clase**.
+
+Consideremos `add1` (supoñendo que previamente a definíramos)
 
 ```js
 [3,5,7,9].map(add1);
@@ -1234,7 +1259,34 @@ Como exemplo do punto 2, consideremos `add1` (supoñendo que previamente a defin
 add1(5);
 ```
 
-#### 1.15.3.1 GOTCHA - COIDADO
+Outro xeito de facelo (**e complicalo**) é **crear e pasar como valor ao mesmo tempo**. Tamén o fixemos, pero non o explícaramos deste xeito.
+
+```js
+[3,5,7,9].map(x => x + 1);
+```
+
+Creamos a Lambda Function `x => x + 1` e inmediatemente pasámoslla a `map`.
+
+#### 1.15.3.3 Exemplo de retornado de función
+
+Este exemplo é para que vexades que se pode facer. Cando nos metemos a estudiar as funcións podemos chegar a cousas tan enrevesadas como este exemplo. Tomádeo como un pasatempo, un crebacabezas.
+
+```js
+function giveMeAdd100() {
+  return (x => x + 100);
+}
+
+giveMeAdd100();
+
+giveMeAdd100()(30);  // 👈 WT? 😱😱😱!!!!!
+```
+
+
+![](./img/giveMeAdd100.png)
+
+Fixádevos no doble paréntese `()(30)` 👈 🤕🤕🤕🤕🤕 (**DOR DE MIOLOS!**)
+
+#### 1.15.3.4 GOTCHA - COIDADO
 
 👀 Cando usamos unha función como un valor, **NON LEVA `()`**, senón é unha invocación, que xa vimos que é diferente. Vexamos o seguinte exemplo 👇
 
@@ -1257,11 +1309,17 @@ add1(5);
 ((x,y) => x + y)(3,4);
 ```
 
+**RESPOSTA 👉**: `7`
+
 ### 1.16.2 Exercicio 1b: ⁉️ Exemplo IIFE (2)
 
 > ⁉️ Cómo temos que modificar o código anterior para que devolva un 11?
 
-**ToDo**: Poñer a solución
+**👇 UNHA DAS POSIBLES RESPOSTA 👇**
+
+```js
+((x,y) => x + y)(6,5);
+```
 
 ### 1.16.3 Exercicio 1c: ⁉️ Exemplo IIFE (3)
 
@@ -1273,7 +1331,15 @@ add1(5);
 add(3,4)
 ```
 
-**ToDo**: Poñer a solución
+**👇 RESPOSTA 👇**
+
+```js
+function add(x,y) {
+  return x + y;
+}
+
+add(3,4)
+```
 
 ## 1.17 Statements vs Expressions
 
@@ -1289,7 +1355,11 @@ function add(x,y) {
 
 > ⁉️ Qué devolve a definición da función (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?
 
-**ToDo**: Poñer a solución
+**👇 RESPOSTA 👇**
+
+`undefined`
+
+![](./img/statement-undefined.png)
 
 ### 1.17.2 Exercicio 1b: ⁉️ Qué devolve (`return`) a definición dunha Lambda?
 
@@ -1300,9 +1370,11 @@ Imos definir a mesma función pero usando unha Lambda Anónima
 ```
 > ⁉️ Qué devolve a definición da función Lambda (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?
 
-🤪🤪🤪👽🤖👾🤪🤪🤪
+**👇 RESPOSTA 👇**
 
-**ToDo**: Poñer a solución
+**A propia función!!!** 🤪🤪🤪👽🤖👾🤪🤪🤪
+
+![](./img/expression-return.png)
 
 ### 1.17.3 Definicións statement e expression
 
@@ -1343,3 +1415,35 @@ function myMap(coleccion, funcion) {
 **`console`** é un **obxecto** que, entre outras cousas, contén funcións.
 
 > ⁉️ Investigade na consola das Dev Tools o obxecto `console`
+
+Probade con
+
+```js
+console.log([1,2,3]);
+console.info([1,2,3]);
+console.error([1,2,3]);
+console.name;
+console.length;
+```
+
+![](./img/console-as-a-object.png)
+
+### 1.18.3 Tarefa: Inspeccionar 🔍 os `array`s coma obxectos nas Dev Tools
+
+Na clase tamén vimos o exemplo dos arrays (que a sua vez son obxectos)
+
+```js
+[10, 20, 30, 40].map(x => x + 1);
+[10, 20, 30, 40].filter(x => x >= 30);
+[10, 20, 30, 40].reduce((acc,x) => acc + x);
+```
+
+`map`, `filter` e `reduce` viven **dentro** dos arrays. Por iso poden **facer _"trampas"_** e acceder a `[10, 20, 30, 40]`.
+
+```js
+[10, 20, 30, 40]
+```
+
+![](./img/exemplo-array-coma-obxecto.png)
+
+**ESQUECEDE o `<prototype>`, non o imos ver 🥳😉**
