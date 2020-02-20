@@ -1433,6 +1433,12 @@ console.length;
 
 ![](./img/console-as-a-object.png)
 
+
+- `log` é un método (función) do obxecto `console`.
+- `info` é un método (función) do obxecto `console`.
+- `error` é un método (función) do obxecto `console`.
+
+
 ### 1.18.3 Tarefa: Inspeccionar 🔍 os `array`s coma obxectos nas Dev Tools
 
 Na clase tamén vimos o exemplo dos arrays (que a sua vez son obxectos)
