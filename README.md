@@ -5,6 +5,8 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
 1. Definir unha función.
 2. Usar (chamar, executar ou invocar, todas son sinónimos) unha función.
 
+Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemos facer coas funcións](#115-as-3-cousas-que-podemos-facer-coas-funcións)
+
 ## Índice
 
 - [Funcións](#funcións)
@@ -58,6 +60,27 @@ Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
     - [1.14.2 Definición e uso de `myMap` e `yell`](#1142-definición-e-uso-de-mymap-e-yell)
     - [1.14.3 Renomeado](#1143-renomeado)
     - [1.14.4 Podemos renomear 2 veces?](#1144-podemos-renomear-2-veces)
+  - [(Apuntamentos iniciais para o xoves 20 de febreiro) 1.15](#apuntamentos-iniciais-para-o-xoves-20-de-febreiro-115)
+  - [1.15 As 3 cousas que podemos facer coas funcións](#115-as-3-cousas-que-podemos-facer-coas-funcións)
+    - [1.15.1 Definilas](#1151-definilas)
+      - [1.15.1.1 Function definition, function declaration o function statement](#11511-function-definition-function-declaration-o-function-statement)
+      - [1.15.1.2 Lambda Functions o Arrow Functions](#11512-lambda-functions-o-arrow-functions)
+    - [1.15.2 Invocalas](#1152-invocalas)
+      - [1.15.2.1 GOTCHA - COIDADO](#11521-gotcha---coidado)
+    - [1.15.3 Usalas como valores](#1153-usalas-como-valores)
+      - [1.15.3.1 GOTCHA - COIDADO](#11531-gotcha---coidado)
+  - [1.16 Definir e invocar funcións inmediatamente (IIFE)](#116-definir-e-invocar-funcións-inmediatamente-iife)
+    - [1.16.1 Exercicio 1a: ⁉️ Exemplo IIFE (1)](#1161-exercicio-1a-️-exemplo-iife-1)
+    - [1.16.2 Exercicio 1b: ⁉️ Exemplo IIFE (2)](#1162-exercicio-1b-️-exemplo-iife-2)
+    - [1.16.3 Exercicio 1c: ⁉️ Exemplo IIFE (3)](#1163-exercicio-1c-️-exemplo-iife-3)
+  - [1.17 Statements vs Expressions](#117-statements-vs-expressions)
+    - [1.17.1 Exercicio 1a: ⁉️ Qué devolve (`return`) a definición dunha función?](#1171-exercicio-1a-️-qué-devolve-return-a-definición-dunha-función)
+    - [1.17.2 Exercicio 1b: ⁉️ Qué devolve (`return`) a definición dunha Lambda?](#1172-exercicio-1b-️-qué-devolve-return-a-definición-dunha-lambda)
+    - [1.17.3 Definicións statement e expression](#1173-definicións-statement-e-expression)
+    - [1.17.4 Exemplos: statements e expressions](#1174-exemplos-statements-e-expressions)
+  - [1.18 `console` Object e o caso dos obxectos tramposos 🕵️‍♀️🔍](#118-console-object-e-o-caso-dos-obxectos-tramposos-️️)
+    - [1.18.1 Métodos](#1181-métodos)
+    - [1.18.2 Tarefa: Inspeccionar 🔍 o obxecto `console` nas Dev Tools](#1182-tarefa-inspeccionar--o-obxecto-console-nas-dev-tools)
 
 ## 1.1 Definición dunha función
 
@@ -1125,3 +1148,196 @@ Probamos
 💩👎👎👎
 
 Non podemos.
+
+## (Apuntamentos iniciais para o xoves 20 de febreiro) 1.15
+
+## 1.15 As 3 cousas que podemos facer coas funcións
+
+### 1.15.1 Definilas
+
+Xa coñecemos 2 xeitos diferentes de facelo
+
+#### 1.15.1.1 Function definition, function declaration o function statement
+
+O primeiro que vimos na clase 👇
+
+```js
+function add1(x) {
+  return x + 1;
+}
+```
+
+```js
+function add(x,y) {
+  return x + y;
+}
+```
+
+#### 1.15.1.2 Lambda Functions o Arrow Functions
+
+O que usamos as veces con `map`, `filter` e `reduce`
+
+```js
+(x,y) => x + y;
+```
+
+Recordade que as Lambda Functions son anónimas (non levan nome).
+
+### 1.15.2 Invocalas
+
+Usando
+
+```js
+<nome-da-funcion>(argumentos);
+```
+
+por exemplo
+
+```js
+add1(9);   // Devolve un 10
+add1(4);   // Devolve un 5
+add(4,8);  // Devolve un 12
+```
+
+#### 1.15.2.1 GOTCHA - COIDADO
+
+👀 O uso de **`(argumentos)`** é sempre indicativo de **invocación** 👀.
+
+### 1.15.3 Usalas como valores
+
+En JavaScript as funcións son **VALORES** (**datos**) por si mesmas. É dicir, son valores do mesmo xeito que 👇
+
+```js
+100;
+true;
+"Hello";
+[33, 44, 55];
+```
+
+Polo feito de ser valores, podemos
+
+1. **Renomealas** (soese usar a expresión _"asignalas a unha variable"_).
+2. **Pasalas a outras funcións como argumentos** (recordade as funcións que pasamos a `map`, `filter` e `reduce`).
+3. **Ser devoltas** (`return <función>`) por outras funcións.
+
+Ata o de agora, na clase, só fixemos o **punto 2** (pasalas a outras funcións). Nunca renomeamos unha función (**punto 1**) e nunca devolvimos unha función (**punto 2**).
+
+Como exemplo do punto 2, consideremos `add1` (supoñendo que previamente a definiramos),
+
+```js
+[3,5,7,9].map(add1);
+```
+
+👆 `add1` está a ser **usada coma un valor**, do mesmo xeito que o número `5` 👇
+
+```js
+add1(5);
+```
+
+#### 1.15.3.1 GOTCHA - COIDADO
+
+👀 Cando usamos unha función como un valor, **NON LEVA `()`**, senón é unha invocación, que xa vimos que é diferente. Vexamos o seguinte exemplo 👇
+
+```js
+[3,5,7,9].map(add1);
+```
+
+- ☢︎🚦✋ **`add1` é usada como valor por `map`** por iso non leva `()` (non aparece como `add1(4)`).
+- ☢︎🚦✋ **`map` é invocada** e leva `()` (aparece como `map(add1)`).
+
+## 1.16 Definir e invocar funcións inmediatamente (IIFE)
+
+👽👽👽 **IIFE**: Immediately Invoked Function Expression  👽👽👽
+
+### 1.16.1 Exercicio 1a: ⁉️ Exemplo IIFE (1)
+
+> ⁉️ Qué credes que fai o seguinte código? Cal é o resultado que se vai obter?
+
+```js
+((x,y) => x + y)(3,4);
+```
+
+### 1.16.2 Exercicio 1b: ⁉️ Exemplo IIFE (2)
+
+> ⁉️ Cómo temos que modificar o código anterior para que devolva un 11?
+
+### 1.16.3 Exercicio 1c: ⁉️ Exemplo IIFE (3)
+
+> ⁉️ Atopade unha alternativa en 2 pasos que sexa máis lexible e declare mellor a intención do que se pretende facer.
+
+🎁 **PISTA**: Este daquí sería o segundo paso 👇
+
+```js
+add(3,4)
+```
+
+**ToDo**: Poñer a solución
+
+## 1.17 Statements vs Expressions
+
+### 1.17.1 Exercicio 1a: ⁉️ Qué devolve (`return`) a definición dunha función?
+
+Imos fixarnos na definición da seguinte función (**function definition**)
+
+```js
+function add(x,y) {
+  return x + y;
+}
+```
+
+> ⁉️ Qué devolve a definición da función (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?
+
+**ToDo**: Poñer a solución
+
+### 1.17.2 Exercicio 1b: ⁉️ Qué devolve (`return`) a definición dunha Lambda?
+
+Imos definir a mesma función pero usando unha Lambda Anónima
+
+```js
+(x,y) => x + y;
+```
+> ⁉️ Qué devolve a definición da función Lambda (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?
+
+🤪🤪🤪👽🤖👾🤪🤪🤪
+
+**ToDo**: Poñer a solución
+
+### 1.17.3 Definicións statement e expression
+
+- Cando unha instrucción non devolve nada (é dicir retorna `undefined`) se dí que é un **statement**.
+- Cando devolve algo (neste caso a propia función) se dí que é unha **expression**.
+
+### 1.17.4 Exemplos: statements e expressions
+
+- Unha **function definition** coa palabra `function` é un **statement**.
+- A definición dunha **función lambda** coa `=>` é unha **expression**.
+
+## 1.18 `console` Object e o caso dos obxectos tramposos 🕵️‍♀️🔍
+
+### 1.18.1 Métodos
+
+Cando as **funcións** viven dentro dun obxecto, é usual chamalas **métodos**... Pero en realidade, simplemente son **funcións que fan _"trampas"_**...
+
+Recordades `map` e a trampa do **array** (a colección) que non saía nas signaturas ou definicións de tipos das funcións?
+
+```js
+//               map :: Fn → Array Number
+[10, 20, 30, 40].map(add1);
+```
+
+Ben. Pois **o array `[10, 20, 30, 40]`** 🥁🥁🥁🥁🥁 **é un obxecto**. E como fai trampas pode accecer aos valores do array `[10, 20, 30, 40]`.
+
+Cando fixemos `myMap`, no fondo, a nosa intención era **desfacer as trampas** e obrigar ao array a sair nas signaturas (definicións de tipos das funcións) 👇
+
+```js
+//       myMap :: Array Number → Fn → Array Number
+function myMap(coleccion, funcion) {
+  return coleccion.map(funcion);
+}
+```
+
+### 1.18.2 Tarefa: Inspeccionar 🔍 o obxecto `console` nas Dev Tools
+
+**`console`** é un **obxecto** que, entre outras cousas, contén funcións.
+
+> ⁉️ Investigade na consola das Dev Tools o obxecto `console`
