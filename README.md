@@ -1,6 +1,6 @@
 # Tarefa HTML e CSS (Confinamento)
 
-[Ir a tarefa HTML e CSS](./tarefa-html-e-css/README.md)
+[Ir á tarefa HTML e CSS](./tarefa-html-e-css/README.md)
 
 # Resumo para proba marzo
 
