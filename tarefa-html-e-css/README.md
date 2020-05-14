@@ -8,7 +8,7 @@ Completar, como mínimo, a [introducción ao HTML](https://frontendmasters.com/b
 
 Esta é a tarefa máis básica, tendo que entregar:
 
-- Unha captura de pantalla que confirme que víchedes todos os vídeos (a medida que finalizades un video veredes que a barra de progreso aumenta).
+- Unha captura de pantalla que confirme que víchedes todos os vídeos (a medida que finalizades un video veredes que a barra de progreso avanza).
 - O exercicio do **Book Markup** como un ficheiro `html` ou como un proxecto (pen) de codepen.
 
 ## 2. CSS Básico
@@ -23,7 +23,7 @@ Nesta última sección poderemos aplicar estilos básicos a práctica do **Book 
 
 Esta é unha tarefa máis avanzada, tendo que entregar:
 
-- Unha captura de pantalla que confirme que víchedes todos os vídeos (a medida que finalizades un video veredes que a barra de progreso aumenta).
+- Unha captura de pantalla que confirme que víchedes todos os vídeos (a medida que finalizades un video veredes que a barra de progreso avanza).
 - O exercicio do **Book Markup** como un ficheiro `html` e outro `css` ou como un proxecto (pen) de codepen.
 
 ## 3. CSS Avanzado
@@ -32,14 +32,14 @@ A persoa que se atope con ánimo, poderá finalizar a [introducción ao CSS](htt
 
 1. CSS Spacing.
 2. CSS Layout with Block & Inline Block.
-3. CSS Layout with Floats (**ANTIGUO!**)
-4. CSS Layout with Flexbox (**MODERNO!**)
+3. CSS Layout with Floats (**ANTIGUO!**) ☠️
+4. CSS Layout with Flexbox (**MODERNO!**) 🤖
 
 Estas 4 seccións culminan con **CSS Layout Exercise**, no que poderemos deseñar un blog.
 
-Se chegades ata aquí... PARABENS!!! Non é doado. PAra esta tarefa poderedes entregar:
+Se chegades ata aquí... PARABENS!!! Non é doado. Para esta tarefa poderedes entregar:
 
-- Unha captura de pantalla que confirme que víchedes todos os vídeos (a medida que finalizades un video veredes que a barra de progreso aumenta).
+- Unha captura de pantalla que confirme que víchedes todos os vídeos (a medida que finalizades un video veredes que a barra de progreso avanza).
 - O exercicio do **BLOG** como un ficheiro `html` e outro `css` ou como un proxecto (pen) de codepen.
 
 ## Problemas co inglés
@@ -50,4 +50,4 @@ Na páxina de Google Translate, podedes pegar a ligazón á paxina que queirades
 
 ## Dubidas
 
-Como sempre, calquera dúbida, a través da cnale de Telegram, do correo electrónico ou da Aula Virtual (ainda que preferiría non usar a Aula Virtual, xa que téñovos en 2 clases diferentes).
+Como sempre, calquera dúbida, a través da canle de Telegram, do correo electrónico ou da Aula Virtual (ainda que preferiría non usar a Aula Virtual, xa que téñovos en 2 clases diferentes).
