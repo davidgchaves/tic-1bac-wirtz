@@ -1,4 +1,4 @@
-# Tarefa HTML & CSS
+# Tarefa HTML & CSS (Data límite: venres 29 de maio)
 
 Tal e como xa falaramos a través da canle de Telegram, imos definir formalmente a tarefa relativa a HTML e CSS para a que seguiremos os videos do bootcamp de Frontend Masters que podedes atopar [nesta ligazón](https://frontendmasters.com/bootcamp/). Según o tempo e ganas coas que contedes poderedes realizar as seguintes partes.
 
