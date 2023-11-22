@@ -1,4 +1,4 @@
-# Funcións
+# Funcións ou JS funcional
 
 Ata o de agora estabamos acostumados a facer duas cousas coas funcións:
 
@@ -60,8 +60,8 @@ Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemo
    - [1.14.4 Podemos renomear 2 veces?](#1144-podemos-renomear-2-veces)
 - [1.15 As 3 cousas que podemos facer coas funcións](#115-as-3-cousas-que-podemos-facer-coas-funcións)
    - [1.15.1 Definilas](#1151-definilas)
-      - [1.15.1.1 Function definition, function declaration o function statement](#11511-function-definition-function-declaration-o-function-statement)
-      - [1.15.1.2 Lambda Functions o Arrow Functions](#11512-lambda-functions-o-arrow-functions)
+      - [1.15.1.1 _Function definition_, _function declaration_ ou _function statement_](#11511-function-definition-function-declaration-ou-function-statement)
+      - [1.15.1.2 _Lambda Functions_ o _Arrow Functions_](#11512-lambda-functions-ou-arrow-functions)
    - [1.15.2 Invocalas](#1152-invocalas)
       - [1.15.2.1 GOTCHA - COIDADO](#11521-gotcha---coidado)
    - [1.15.3 Usalas como valores](#1153-usalas-como-valores)
@@ -74,10 +74,10 @@ Agora xa sabemos que son 3 cousas 🥳🥳🥳. Ver [1.15 As 3 cousas que podemo
    - [1.16.2 Exercicio 1b: ⁉️ Exemplo IIFE (2)](#1162-exercicio-1b-️-exemplo-iife-2)
    - [1.16.3 Exercicio 1c: ⁉️ Exemplo IIFE (3)](#1163-exercicio-1c-️-exemplo-iife-3)
 - [1.17 Statements vs Expressions](#117-statements-vs-expressions)
-   - [1.17.1 Exercicio 1a: ⁉️ Qué devolve (`return`) a definición dunha función?](#1171-exercicio-1a-️-qué-devolve-return-a-definición-dunha-función)
-   - [1.17.2 Exercicio 1b: ⁉️ Qué devolve (`return`) a definición dunha Lambda?](#1172-exercicio-1b-️-qué-devolve-return-a-definición-dunha-lambda)
-   - [1.17.3 Definicións statement e expression](#1173-definicións-statement-e-expression)
-   - [1.17.4 Exemplos: statements e expressions](#1174-exemplos-statements-e-expressions)
+   - [1.17.1 Exercicio 1a: ⁉️ qué devolve (`return`) a definición dunha función?](#1171-exercicio-1a-️-qué-devolve-return-a-definición-dunha-función)
+   - [1.17.2 Exercicio 1b: ⁉️ qué devolve (`return`) a definición dunha Lambda?](#1172-exercicio-1b-️-qué-devolve-return-a-definición-dunha-lambda)
+   - [1.17.3 Definicións: _statement_ e _expression_](#1173-definicións-statement-e-expression)
+   - [1.17.4 Exemplos: _statements_ e _expressions_](#1174-exemplos-statements-e-expressions)
 - [1.18 `console` Object e o caso dos obxectos tramposos 🕵️‍♀️🔍](#118-console-object-e-o-caso-dos-obxectos-tramposos-️️)
    - [1.18.1 Métodos](#1181-métodos)
    - [1.18.2 Tarefa: Inspeccionar 🔍 o obxecto `console` nas Dev Tools](#1182-tarefa-inspeccionar--o-obxecto-console-nas-dev-tools)
@@ -150,11 +150,11 @@ Dende o punto de vista que estamos a defender na clase, podemos ver as funcións
 
 ## 1.5 `undefined` e `return`
 
-> ¿Que acontece cando facemos un `console.log('Ola')`?
+> _¿Que acontece cando facemos un `console.log('Ola')`?_
 
 ![](./img/console-log-example.png)
 
-> ¿Qué é iso de `undefined`?
+> _¿Qué é iso de `undefined`?_
 
 Vexamos outro exemplo
 
@@ -184,9 +184,9 @@ Esto é o que acontece
 
 ![](./img/no-return-example.png)
 
-> Pero entón, ¿cómo pode ser que `console.log` non devolva nada pero ainda así vexamos o resultado?
+> _Pero entón, ¿cómo pode ser que `console.log` non devolva nada pero ainda así vexamos o resultado?_
 
-A resposta... os efectos secundarios
+A resposta... os **efectos secundarios**
 
 ## 1.6 Efectos secundarios nas funcións
 
@@ -223,7 +223,7 @@ Debemos actualizar o concepto das caixas negras
 
 ## 1.7 Exemplo
 
-Podemos levar esta idea ainda máis alá. Considerade a seguinte función
+Podemos levar esta idea ainda máis aló. Considerade a seguinte función
 
 ```js
 function efectosSecundariosAndNoReturn(x) {
@@ -240,7 +240,7 @@ Fixémonos en qué acontece
 
 ![](./img/efectos-secundarios-example-2.png)
 
-Efectivamente non hai return (mirade o `undefined` por riba do `150`) e temos 3 efectos secundarios.
+Efectivamente non hai `return` (mirade o `undefined` por riba do `150`) e temos 3 efectos secundarios.
 
 Poderiamos dicir que `efectosSecundariosAndNoReturn` ten
 
@@ -279,7 +279,7 @@ function minus(acc, x) {
 
 ![](./img/map-example-1.png)
 
-> ¿Qué tipo de función agarda `map` como argumento?
+> _¿Qué tipo de función agarda `map` como argumento?_
 
 Unha como `add1`. É dicir:
 
@@ -292,7 +292,7 @@ Se `map` recibe como argumento unha función con características diferentes non
 
 ![](./img/filter-example-1.png)
 
-> ¿Qué tipo de función agarda `filter` como argumento?
+> _¿Qué tipo de función agarda `filter` como argumento?_
 
 Unha como `greaterThan15`. É dicir:
 
@@ -307,7 +307,7 @@ Se `filter` recibe como argumento unha función con características diferentes 
 
 ![](./img/reduce-example-1.png)
 
-> ¿Qué tipo de función agarda `reduce` como argumento?
+> _¿Qué tipo de función agarda `reduce` como argumento?_
 
 Unha como `minus`. É dicir:
 
@@ -321,7 +321,7 @@ Neste caso preferimos poñer un nome máis descritivo aos parámetros da funció
 3. `acc` toma o valor do último `return` (`acc = -10`) e `x` o do seguinte valor do array (`x = 30`).
 4. executamos o `return` (`acc - x`) obtendo o valor `-40` (`-10 - 30 = -40`). Este `-40` sería o valor do próximo `acc` pero como xa baleiramos o array pasa a ser o valor resultado final de `reduce`.
 
-As funcións como `minus`, **as veces**, reciben o nome de **reducers** ou **reductores**.
+As funcións como `minus`, **as veces**, reciben o nome de **reducers** ou **redutores**.
 
 Se `reduce` recibe como argumento unha función con características diferentes non vai funcionar. Por exemplo se recibe unha función con 3 entradas ou con 1 entrada falla en ámbolos casos.
 
@@ -354,20 +354,20 @@ O resultado
 
 ### 1.9.1 Inconsistencias
 
-As Arrow Functions teñen algunha inconsistencia ao respecto da notación
+As **Arrow Functions** teñen algunha inconsistencia ao respecto da notación
 
 ```js
-// 0 parámetro
-() => 27;  // ✅
-   => 27;  // ❌
+// 0 parámetros
+() => 27;  ✅
+   => 27;  ❌
 
 // 1 parámetro
-(x) => x + 10; // ✅
-x   => x + 10; // ✅
+(x) => x + 10; ✅
+ x  => x + 10; ✅
 
 // 2 ou máis parámetros
-(x, y, z) => x + y - z;  // ✅
-x, y, z   => x + y - z;  // ❌
+(x, y, z) => x + y - z;  ✅
+ x, y, z  => x + y - z;  ❌
 ```
 
 ### 1.9.2 `return` implícito
@@ -381,16 +381,16 @@ As Arrow Functions levan un `return` implícito, é dicir as duas funcións que 
 
 ## INTERLUDIO: Interpolación de Strings
 
-> Cómo podemos facer para intercalar partes variables nun texto ou String?
+> _Cómo podemos facer para intercalar partes variables nun texto ou `String`?_
 
 Moi sinxelo.
 
-1. Usamos `` para facer o String.
+1. Usamos \`\` para facer o `String`.
 2. Usamos `${}` para encapsular o que queremos intercalar
 
 ```js
 function useMe(text) {
-  return `insert 👉 ${text} 👈`
+  return `insert 👉 ${text} 👈`;
 }
 
 useMe("one two three");
@@ -516,7 +516,7 @@ Recordemos que `map` quere funcións como `add1(x)`
 
 ### 1.11.3 A solución
 
-> Poderiamos crear unha función que grite (`yell`) que sexa compatible con `map` e use dentro `toUpperCase()`?
+> _Poderiamos crear unha función que grite (`yell`) que sexa compatible con `map` e use dentro `toUpperCase()`?_
 
 Claro que podemos
 
@@ -532,7 +532,7 @@ Aquí temos a proba
 
 ![](./img/yell.png)
 
-> Pero, funciona con `map`?
+> _Pero, funciona con `map`?_
 
 ```js
 ["hello", "hallo", "hola", "ola"].map(yell);
@@ -608,7 +608,7 @@ Pero `map` fai trampas porque usa unha colección extra. No exemplo de arriba `[
 
 ### 1.12.2 `myMap(coleccion, funcion)`
 
-Queremos facer unha función `myMap` que siga a seguinte descripción
+Queremos facer unha función `myMap` que siga a seguinte descrición
 
 ```
                ---------
@@ -657,7 +657,7 @@ Pero `filter` fai trampas (as mesmas trampas que `map`) porque usa unha colecci�
 
 ### 1.12.4 `myFilter(coleccion, predicado)`
 
-Queremos facer unha función `myFilter` que siga a seguinte descripción
+Queremos facer unha función `myFilter` que siga a seguinte descrición
 
 ```
                ------------
@@ -706,7 +706,7 @@ Pero `reduce` fai trampas porque usa unha colección extra. No exemplo de arriba
 
 ### 1.12.6 `myReduce(coleccion, funcion)`
 
-Queremos facer unha función `myReduce` que siga a seguinte descripción
+Queremos facer unha función `myReduce` que siga a seguinte descrición
 
 ```
                ------------
@@ -827,7 +827,7 @@ function yell(text) {
 }
 ```
 
-Comparemos a descripción de `<string>.toUpperCase` coa de `yell`
+Comparemos a descrición de `<string>.toUpperCase` coa de `yell`
 
 ```js
 toUpperCase :: ()     → String
@@ -957,11 +957,11 @@ nonVista2 :: String → Number
 
 pero existen.
 
-> Qué é o que cambia nas descricións de `myMap`?
+> _Qué é o que cambia nas descricións de `myMap`?_
 
 `String` e `Number`
 
-> Podemos facer ainda máis xenérica a descrición de `myMap`?
+> _Podemos facer ainda máis xenérica a descrición de `myMap`?_
 
 Sí que podemos. Do mesmo xeito que é costume usar `x` e `y` como nomes dos parametros das funcións que como `add` reciben 2 números. Recordemos 👇
 
@@ -1049,14 +1049,14 @@ add1 :: Number → Number
 yell :: String → String
 ```
 
-**NOTA**: Na clase do mércores 19 veremos polo menos un exemplo de funcións que teñan a seguinte forma
+Porén, tamén valerían funcións que teñan a seguinte forma 👇
 
 ```js
 xxx1 :: String → Number
 xxx2 :: Number → String
 ```
 
-A forma das funcións `Fn` que admite `map` e polo tanto `myMap` é
+A forma das funcións `Fn` que admite `map`, e polo tanto `myMap`, é
 
 ```js
 mapeable :: a → b
@@ -1111,7 +1111,7 @@ Resultado de executalo na consola do Firefox 👇
 ### 1.14.3 Renomeado
 
 ```js
-/* 👀 supoñemos que myMap e yell están definidos de antes 👀 */
+/* 👀 supoñemos que myMap e yell están definidas de antes 👀 */
 
 // Dámoslle o nome textos ao Array
 const textos = ["ola", "hello", "hallo", "hola"];
@@ -1156,7 +1156,7 @@ Non podemos.
 
 Xa coñecemos 2 xeitos diferentes de facelo
 
-#### 1.15.1.1 Function definition, function declaration o function statement
+#### 1.15.1.1 _Function definition_, _function declaration_ ou _function statement_
 
 O primeiro que vimos na clase 👇
 
@@ -1172,7 +1172,7 @@ function add(x,y) {
 }
 ```
 
-#### 1.15.1.2 Lambda Functions o Arrow Functions
+#### 1.15.1.2 _Lambda Functions_ ou _Arrow Functions_
 
 O que usamos as veces con `map`, `filter` e `reduce`
 
@@ -1180,7 +1180,7 @@ O que usamos as veces con `map`, `filter` e `reduce`
 (x,y) => x + y;
 ```
 
-Recordade que as Lambda Functions son anónimas (non levan nome).
+Recordade que as _Lambda Functions_ son **anónimas** (non levan nome).
 
 ### 1.15.2 Invocalas
 
@@ -1243,7 +1243,7 @@ const suma51 = function add51(x) {
 
 #### 1.15.3.2 Exemplo de argumentos de funcións
 
-**Fixémolo moitas veces na clase**.
+(**Fixémolo moitas veces na clase**)
 
 Consideremos `add1` (supoñendo que previamente a definíramos)
 
@@ -1257,17 +1257,17 @@ Consideremos `add1` (supoñendo que previamente a definíramos)
 add1(5);
 ```
 
-Outro xeito de facelo (**e complicalo**) é **crear e pasar como valor ao mesmo tempo**. Tamén o fixemos, pero non o explícaramos deste xeito.
+Outro xeito de facelo (**e complicalo**) é **crear e pasar como valor ao mesmo tempo**. Tamén o fixemos, pero non o explicaramos deste xeito.
 
 ```js
 [3,5,7,9].map(x => x + 1);
 ```
 
-Creamos a Lambda Function `x => x + 1` e inmediatemente pasámoslla a `map`.
+Creamos a _Lambda Function_ `x => x + 1` e inmediatemente pasámoslla a `map`.
 
 #### 1.15.3.3 Exemplo de retornado de función
 
-Este exemplo é para que vexades que se pode facer. Cando nos metemos a estudiar as funcións podemos chegar a cousas tan enrevesadas como este exemplo. Tomádeo como un pasatempo, un crebacabezas.
+Este exemplo é para que vexades que se pode facer. Cando nos metemos a estudar as funcións podemos chegar a cousas tan enrevesadas como este exemplo. Tomádeo coma un pasatempo, un crebacabezas (ainda que realmente é moi útil).
 
 ```js
 function giveMeAdd100() {
@@ -1276,7 +1276,7 @@ function giveMeAdd100() {
 
 giveMeAdd100();
 
-giveMeAdd100()(30);  // 👈 WT? 😱😱😱!!!!!
+giveMeAdd100()(30);  // 👈 WTF 😱😱😱!!!!!
 ```
 
 ![](./img/giveMeAdd100.png)
@@ -1285,7 +1285,7 @@ Fixádevos no doble paréntese `()(30)` 👈 🤕🤕🤕🤕🤕 (**DOR DE MIOL
 
 #### 1.15.3.4 GOTCHA - COIDADO
 
-👀 Cando usamos unha función como un valor, **NON LEVA `()`**, senón é unha invocación, que xa vimos que é diferente. Vexamos o seguinte exemplo 👇
+👀 Cando usamos unha función coma un valor, **NON LEVA `()`** (senón sería unha invocación, que xa vimos que é diferente). Vexamos o seguinte exemplo 👇
 
 ```js
 [3,5,7,9].map(add1);
@@ -1296,11 +1296,11 @@ Fixádevos no doble paréntese `()(30)` 👈 🤕🤕🤕🤕🤕 (**DOR DE MIOL
 
 ## 1.16 Definir e invocar funcións inmediatamente (IIFE)
 
-👽👽👽 **IIFE**: Immediately Invoked Function Expression  👽👽👽
+👽👽👽 **IIFE**: _Immediately Invoked Function Expression_ 👽👽👽
 
 ### 1.16.1 Exercicio 1a: ⁉️ Exemplo IIFE (1)
 
-> ⁉️ Qué credes que fai o seguinte código? Cal é o resultado que se vai obter?
+> ⁉️ _Qué credes que fai o seguinte código? Cal é o resultado que se vai obter?_
 
 ```js
 ((x,y) => x + y)(3,4);
@@ -1310,7 +1310,7 @@ Fixádevos no doble paréntese `()(30)` 👈 🤕🤕🤕🤕🤕 (**DOR DE MIOL
 
 ### 1.16.2 Exercicio 1b: ⁉️ Exemplo IIFE (2)
 
-> ⁉️ Cómo temos que modificar o código anterior para que devolva un 11?
+> ⁉️ _Cómo temos que modificar o código anterior para que devolva un 11?_
 
 **👇 UNHA DAS POSIBLES RESPOSTA 👇**
 
@@ -1320,7 +1320,7 @@ Fixádevos no doble paréntese `()(30)` 👈 🤕🤕🤕🤕🤕 (**DOR DE MIOL
 
 ### 1.16.3 Exercicio 1c: ⁉️ Exemplo IIFE (3)
 
-> ⁉️ Atopade unha alternativa en 2 pasos que sexa máis lexible e declare mellor a intención do que se pretende facer.
+> ⁉️ _Atopade unha alternativa en 2 pasos que sexa máis lexible e declare mellor a intención do que se pretende facer._
 
 🎁 **PISTA**: Este daquí sería o segundo paso 👇
 
@@ -1340,7 +1340,7 @@ add(3,4)
 
 ## 1.17 Statements vs Expressions
 
-### 1.17.1 Exercicio 1a: ⁉️ Qué devolve (`return`) a definición dunha función?
+### 1.17.1 Exercicio 1a: ⁉️ qué devolve (`return`) a definición dunha función?
 
 Imos fixarnos na definición da seguinte función (**function definition**)
 
@@ -1350,7 +1350,7 @@ function add(x,y) {
 }
 ```
 
-> ⁉️ Qué devolve a definición da función (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?
+> ⁉️ _Qué devolve a definición da función (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?_
 
 **👇 RESPOSTA 👇**
 
@@ -1358,14 +1358,14 @@ function add(x,y) {
 
 ![](./img/statement-undefined.png)
 
-### 1.17.2 Exercicio 1b: ⁉️ Qué devolve (`return`) a definición dunha Lambda?
+### 1.17.2 Exercicio 1b: ⁉️ qué devolve (`return`) a definición dunha Lambda?
 
 Imos definir a mesma función pero usando unha Lambda Anónima
 
 ```js
 (x,y) => x + y;
 ```
-> ⁉️ Qué devolve a definición da función Lambda (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?
+> ⁉️ _Qué devolve a definición da función Lambda (👁👁👁 non a invocación da función que devolvería a suma 👁👁👁)?_
 
 **👇 RESPOSTA 👇**
 
@@ -1373,12 +1373,12 @@ Imos definir a mesma función pero usando unha Lambda Anónima
 
 ![](./img/expression-return.png)
 
-### 1.17.3 Definicións statement e expression
+### 1.17.3 Definicións: _statement_ e _expression_
 
 - Cando unha instrucción non devolve nada (é dicir retorna `undefined`) se dí que é un **statement**.
 - Cando devolve algo (neste caso a propia función) se dí que é unha **expression**.
 
-### 1.17.4 Exemplos: statements e expressions
+### 1.17.4 Exemplos: _statements_ e _expressions_
 
 - Unha **function definition** coa palabra `function` é un **statement**.
 - A definición dunha **función lambda** coa `=>` é unha **expression**.
@@ -1411,7 +1411,7 @@ function myMap(coleccion, funcion) {
 
 **`console`** é un **obxecto** que, entre outras cousas, contén funcións.
 
-> ⁉️ Investigade na consola das Dev Tools o obxecto `console`
+> ⁉️ _Investigade na consola das Dev Tools o obxecto `console`._
 
 Probade con
 
@@ -1448,4 +1448,4 @@ Na clase tamén vimos o exemplo dos arrays (que a sua vez son obxectos)
 
 ![](./img/exemplo-array-coma-obxecto.png)
 
-**ESQUECEDE o `<prototype>`, non o imos ver 🥳😉**
+**ESQUECEDE o `<prototype>`, non o imos ver 🥳😉**.
